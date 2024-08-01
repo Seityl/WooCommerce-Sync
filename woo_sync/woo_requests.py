@@ -1,10 +1,10 @@
 import frappe
 import requests
 from frappe import _
+from frappe.utils import cint
 from .utils import make_woocommerce_log
 from .exceptions import woocommerceError
 from requests_oauthlib import OAuth1Session
-from frappe.utils import cint
 
 def get_woocommerce_settings():
     d = frappe.get_doc("WooCommerce Sync", "WooCommerce Sync")
@@ -16,28 +16,80 @@ def get_woocommerce_settings():
     else:
         frappe.throw(_("woocommerce store URL is not configured on WooCommerce Sync"), woocommerceError)
 
-@frappe.whitelist()
-def get_request():
-    settings = get_woocommerce_settings()
+def get_request(path):
+    woocommerce_settings = get_woocommerce_settings()
 
-    woocommerce_url = settings["woocommerce_url"]
-    api_key = settings["api_key"]
-    api_secret = settings["api_secret"]
+    woocommerce_url = woocommerce_settings["woocommerce_url"]
+    api_key = woocommerce_settings["api_key"]
+    api_secret = woocommerce_settings["api_secret"]
 
     woocommerce = OAuth1Session(client_key=api_key, client_secret=api_secret) 
 
     # Construct the API endpoint
-    api_endpoint = f'{woocommerce_url}/wp-json/wc/v3/products/2295'
+    api_endpoint = f'{woocommerce_url}{path}'
     
-    # Make the GET request with Basic Authentication
-    response = woocommerce.get(api_endpoint)
+    r = woocommerce.get(api_endpoint)
     
-    # Check if the request was successful
-    if response.status_code == 200:
-        # Return the JSON data if successful
-        r = response.json()
-        frappe.throw(str(r[("id")])) 
-        return response.json()
-    else:
-        # Handle errors or failed requests
-        response.raise_for_status()  # Raises an HTTPError for bad responses
+    if r.status_code != requests.codes.ok:
+            make_woocommerce_log(title="WooCommerce get error {0}".format(r.status_code), 
+                status="Error", 
+                method="get_request", 
+                message="{0}: {1}".format(r.url, r.json()),
+                request_data="N/A", 
+                exception=True)
+            
+    #make_woocommerce_log(title="SUCCESS: GET", status="Success", method="get_request", message=str(r.json()), request_data=data, exception=True)
+
+    return r.json()
+
+def post_request(path, data):
+    woocommerce_settings = get_woocommerce_settings()
+
+    woocommerce_url = woocommerce_settings["woocommerce_url"]
+    api_key = woocommerce_settings["api_key"]
+    api_secret = woocommerce_settings["api_secret"]
+
+    woocommerce = OAuth1Session(client_key=api_key, client_secret=api_secret) 
+
+    # Construct the API endpoint
+    api_endpoint = f'{woocommerce_url}{path}'
+    
+    r = woocommerce.post(api_endpoint, data)
+    
+    if r.status_code != requests.codes.ok:
+            make_woocommerce_log(title="WooCommerce post error {0}".format(r.status_code), 
+                status="Error", 
+                method="post_request", 
+                message="{0}: {1}".format(r.url, r.json()),
+                request_data=data, 
+                exception=True)
+            
+    # make_woocommerce_log(title="SUCCESS: POST", status="Success", method="post_request", message=str(r.json()), request_data=data, exception=True)
+
+    return r.json()
+
+def put_request(path, data):
+    woocommerce_settings = get_woocommerce_settings()
+
+    woocommerce_url = woocommerce_settings["woocommerce_url"]
+    api_key = woocommerce_settings["api_key"]
+    api_secret = woocommerce_settings["api_secret"]
+
+    woocommerce = OAuth1Session(client_key=api_key, client_secret=api_secret) 
+
+    # Construct the API endpoint
+    api_endpoint = f'{woocommerce_url}{path}'
+    
+    r = woocommerce.put(api_endpoint, data)
+    
+    if r.status_code != requests.codes.ok:
+            make_woocommerce_log(title="WooCommerce put error {0}".format(r.status_code), 
+                status="Error", 
+                method="put_request", 
+                message="{0}: {1}".format(r.url, r.json()),
+                request_data=data, 
+                exception=True)
+            
+    # make_woocommerce_log(title="SUCCESS: PUT", status="Success", method="put_request", message=str(r.json()), request_data=data, exception=True)
+
+    return r.json()

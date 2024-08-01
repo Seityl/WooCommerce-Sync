@@ -3,9 +3,14 @@
 
 frappe.ui.form.on("WooCommerce Sync", {
 	refresh: function(frm) {
-        frm.add_custom_button(__('Sync Items'), function(){
+        frm.add_custom_button(__('Sync Items to WooCommerce'), function(){
             frappe.call({
-                method:"woo_sync.woo_requests.get_request"
+                method:"woo_sync.api.sync_item_to_woocommerce"
+            })
+        });
+        frm.add_custom_button(__('Sync Item'), function(){
+            frappe.call({
+                method:"woo_sync.api.sync_item_to_woocommerce"
             })
         });
 	}

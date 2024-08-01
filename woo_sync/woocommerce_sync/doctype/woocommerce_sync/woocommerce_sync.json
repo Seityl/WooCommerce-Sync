@@ -5,10 +5,9 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "woocommerce_url",
-  "column_break_bpbu",
   "enable_sync",
-  "verify_ssl",
+  "section_break_poxn",
+  "woocommerce_url",
   "section_break_szbx",
   "column_break_kbxs",
   "api_key",
@@ -16,8 +15,8 @@
   "api_secret",
   "section_break_oknw",
   "warehouse",
-  "section_break_fdmd",
-  "html_response"
+  "section_break_ynjc",
+  "woocommerce_item_id"
  ],
  "fields": [
   {
@@ -34,22 +33,12 @@
    "label": "Enable Sync"
   },
   {
-   "fieldname": "column_break_bpbu",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "section_break_szbx",
    "fieldtype": "Section Break"
   },
   {
    "fieldname": "column_break_xmdl",
    "fieldtype": "Column Break"
-  },
-  {
-   "default": "0",
-   "fieldname": "verify_ssl",
-   "fieldtype": "Check",
-   "label": "Verify SSL"
   },
   {
    "fieldname": "column_break_kbxs",
@@ -79,18 +68,23 @@
    "reqd": 1
   },
   {
-   "fieldname": "section_break_fdmd",
+   "fieldname": "section_break_poxn",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "html_response",
-   "fieldtype": "JSON"
+   "fieldname": "section_break_ynjc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "woocommerce_item_id",
+   "fieldtype": "Data",
+   "label": "WooCommerce Item ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-08-01 12:52:54.914212",
+ "modified": "2024-08-01 15:16:06.869082",
  "modified_by": "Administrator",
  "module": "WooCommerce Sync",
  "name": "WooCommerce Sync",

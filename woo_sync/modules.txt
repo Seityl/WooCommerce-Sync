@@ -1,1 +1,3 @@
 woo_sync
+woocommerce
+WooCommerce Sync

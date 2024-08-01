@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-31 16:12:29.571422",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "woocommerce_url",
+  "column_break_bpbu",
+  "enable_sync",
+  "verify_ssl",
+  "section_break_szbx",
+  "column_break_kbxs",
+  "api_key",
+  "column_break_xmdl",
+  "api_secret",
+  "section_break_oknw",
+  "warehouse",
+  "section_break_fdmd",
+  "html_response"
+ ],
+ "fields": [
+  {
+   "fieldname": "woocommerce_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop URL",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_sync",
+   "fieldtype": "Check",
+   "label": "Enable Sync"
+  },
+  {
+   "fieldname": "column_break_bpbu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_szbx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xmdl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "verify_ssl",
+   "fieldtype": "Check",
+   "label": "Verify SSL"
+  },
+  {
+   "fieldname": "column_break_kbxs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_oknw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Data",
+   "label": "Consumer Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_secret",
+   "fieldtype": "Password",
+   "label": "Consumer Secret",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_fdmd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "html_response",
+   "fieldtype": "JSON"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-08-01 12:52:54.914212",
+ "modified_by": "Administrator",
+ "module": "WooCommerce Sync",
+ "name": "WooCommerce Sync",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

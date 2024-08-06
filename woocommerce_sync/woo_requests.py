@@ -16,7 +16,7 @@ def get_woocommerce_settings():
     else:
         frappe.throw(_("woocommerce store URL is not configured on WooCommerce Sync"), woocommerceError)
 
-def get_request(path):
+def get_request(path, data=None):
     woocommerce_settings = get_woocommerce_settings()
 
     woocommerce_url = woocommerce_settings["woocommerce_url"]
@@ -28,17 +28,19 @@ def get_request(path):
     # Construct the API endpoint
     api_endpoint = f'{woocommerce_url}{path}'
     
+    # make_woocommerce_log(title="API Endpoint", status="Success", method="get_request", message=api_endpoint, request_data=data, exception=True)
+
     r = woocommerce.get(api_endpoint)
     
     if r.status_code != requests.codes.ok:
-            make_woocommerce_log(title="WooCommerce get error {0}".format(r.status_code), 
-                status="Error", 
-                method="get_request", 
-                message="{0}: {1}".format(r.url, r.json()),
-                request_data="N/A", 
-                exception=True)
+        make_woocommerce_log(title="WooCommerce get error {0}".format(r.status_code), 
+            status="Error", 
+            method="get_request", 
+            message="{0}: {1}".format(r.url, r.json()),
+            request_data=data, 
+            exception=True)
             
-    #make_woocommerce_log(title="SUCCESS: GET", status="Success", method="get_request", message=str(r.json()), request_data=data, exception=True)
+    # make_woocommerce_log(title="SUCCESS: GET", status="Success", method="get_request", message=str(r.json()), request_data=data, exception=True)
 
     return r.json()
 
@@ -53,16 +55,20 @@ def post_request(path, data):
 
     # Construct the API endpoint
     api_endpoint = f'{woocommerce_url}{path}'
+
+    # make_woocommerce_log(title="API Endpoint", status="Success", method="get_request", message=api_endpoint, request_data=data, exception=True)
     
     r = woocommerce.post(api_endpoint, data)
     
+    # make_woocommerce_log(title="Json", status="Success", method="post_request", message=str(r.json()), request_data=data, exception=True)
+
     if r.status_code != requests.codes.ok:
-            make_woocommerce_log(title="WooCommerce post error {0}".format(r.status_code), 
-                status="Error", 
-                method="post_request", 
-                message="{0}: {1}".format(r.url, r.json()),
-                request_data=data, 
-                exception=True)
+        make_woocommerce_log(title="WooCommerce post error {0}".format(r.status_code), 
+            status="Error", 
+            method="post_request", 
+            message="{0}: {1}".format(r.url, r.json()),
+            request_data=data, 
+            exception=True)
             
     # make_woocommerce_log(title="SUCCESS: POST", status="Success", method="post_request", message=str(r.json()), request_data=data, exception=True)
 
@@ -83,12 +89,12 @@ def put_request(path, data):
     r = woocommerce.put(api_endpoint, data)
     
     if r.status_code != requests.codes.ok:
-            make_woocommerce_log(title="WooCommerce put error {0}".format(r.status_code), 
-                status="Error", 
-                method="put_request", 
-                message="{0}: {1}".format(r.url, r.json()),
-                request_data=data, 
-                exception=True)
+        make_woocommerce_log(title="WooCommerce put error {0}".format(r.status_code), 
+            status="Error", 
+            method="put_request", 
+            message="{0}: {1}".format(r.url, r.json()),
+            request_data=data, 
+            exception=True)
             
     # make_woocommerce_log(title="SUCCESS: PUT", status="Success", method="put_request", message=str(r.json()), request_data=data, exception=True)
 

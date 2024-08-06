@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-31 16:12:29.571422",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_poxn",
+  "woocommerce_url",
+  "section_break_szbx",
+  "column_break_kbxs",
+  "api_key",
+  "column_break_xmdl",
+  "api_secret",
+  "section_break_bjok",
+  "sync_options",
+  "column_break_qvlo",
+  "enable_sync",
+  "verify_ssl",
+  "sync_single_item_section",
+  "sync_based_on",
+  "column_break_oyrr",
+  "item_code",
+  "woocommerce_item_id",
+  "section_break_oknw",
+  "warehouse"
+ ],
+ "fields": [
+  {
+   "fieldname": "woocommerce_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop URL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_szbx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xmdl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_kbxs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_oknw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Data",
+   "label": "Consumer Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_secret",
+   "fieldtype": "Password",
+   "label": "Consumer Secret",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_poxn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "woocommerce_item_id",
+   "fieldtype": "Data",
+   "label": "WooCommerce Item ID"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_sync",
+   "fieldtype": "Check",
+   "label": "Enable Sync (WIP)"
+  },
+  {
+   "default": "0",
+   "fieldname": "verify_ssl",
+   "fieldtype": "Check",
+   "label": "Verify SSL (WIP)"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "label": "Item Code"
+  },
+  {
+   "fieldname": "sync_single_item_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_bjok",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sync_options",
+   "fieldtype": "Select",
+   "label": "Sync Options",
+   "options": "Bulk Sync\nSingle Item Sync"
+  },
+  {
+   "fieldname": "column_break_qvlo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sync_based_on",
+   "fieldtype": "Select",
+   "label": "Sync Single Item Based On:",
+   "options": "Item Code\nWooCommerce Item ID"
+  },
+  {
+   "fieldname": "column_break_oyrr",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-08-03 10:12:10.328246",
+ "modified_by": "Administrator",
+ "module": "WooCommerce Sync",
+ "name": "WooCommerce Sync",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

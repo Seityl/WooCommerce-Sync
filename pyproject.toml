@@ -1,5 +1,5 @@
 [project]
-name = "woo_sync"
+name = "WooCommerce Sync"
 authors = [
     { name = "Jeriel Francis", email = "francisbeatsproductions@gmail.com"}
 ]

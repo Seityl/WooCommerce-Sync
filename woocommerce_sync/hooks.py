@@ -1,5 +1,5 @@
-app_name = "woo_sync"
-app_title = "woo_sync"
+app_name = "WooCommerce Sync"
+app_title = "WooCommerce Sync"
 app_publisher = "Jeriel Francis"
 app_description = "Sync Woo Comemrce to ERP Next V15"
 app_email = "francisbeatsproductions@gmail.com"

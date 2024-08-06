@@ -1,4 +1,4 @@
-## woo_sync
+## WooCommerce Sync
 
 Sync Woo Comemrce to ERP Next V15
 

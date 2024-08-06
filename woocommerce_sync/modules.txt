@@ -1,2 +1,1 @@
-woo_sync
 WooCommerce Sync
